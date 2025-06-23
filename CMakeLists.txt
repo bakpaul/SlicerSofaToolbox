@@ -1,0 +1,41 @@
+cmake_minimum_required(VERSION 3.22)
+project(SlicerSofaToolbox VERSION 1.0)
+set(CMAKE_CXX_STANDARD 17)
+if(CMAKE_COMPILER_IS_GNUCXX)
+        add_compile_options(-Wall -Wextra -Wpedantic)
+endif(CMAKE_COMPILER_IS_GNUCXX)
+
+# SOFA packages containing our dependencies
+find_package(Sofa.Framework REQUIRED) # Needed to use SofaCore, SofaHelper and SofaDefaultType
+find_package(Sofa.Component.Topology REQUIRED) # Needed to use SofaCore, SofaHelper and SofaDefaultType
+find_package(Sofa.Component.StateContainer REQUIRED) # Needed to use SofaCore, SofaHelper and SofaDefaultType
+find_package(Sofa.GUI.Component REQUIRED) # Needed to use SofaCore, SofaHelper and SofaDefaultType
+
+file(GLOB_RECURSE HEADER_FILES
+        "src/*.h.in"
+        "src/*.h"
+        "src/*.inl"
+        )
+
+file(GLOB_RECURSE SOURCE_FILES
+        "src/*.cpp"
+        )
+
+# SOFA plugin are basically libraries
+add_library(${PROJECT_NAME} SHARED ${HEADER_FILES} ${SOURCE_FILES})
+target_link_libraries(${PROJECT_NAME} Sofa.Framework Sofa.Component.Topology Sofa.Component.StateContainer Sofa.GUI.Component)
+#target_include_directories(${PROJECT_NAME} PUBLIC "$<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/include>")
+include_directories(src)
+
+
+
+sofa_create_package_with_targets(
+        PACKAGE_NAME ${PROJECT_NAME}
+        PACKAGE_VERSION ${PROJECT_VERSION}
+        TARGETS ${PROJECT_NAME} AUTO_SET_TARGET_PROPERTIES
+        INCLUDE_SOURCE_DIR "src"
+        INCLUDE_INSTALL_DIR ${PROJECT_NAME}
+        RELOCATABLE "plugins"
+)
+
+
