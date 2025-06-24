@@ -14,7 +14,7 @@
 
 #include <sofa/core/behavior/MechanicalState.h>
 #include <sofa/core/objectmodel/DataCallback.h>
-#include <SlicerSofaToolbox/slicersofatoolbox/config.h>
+#include <slicersofatoolbox/config.h>
 
 namespace slicersofatoolbox {
 

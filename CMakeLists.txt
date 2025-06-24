@@ -24,7 +24,7 @@ file(GLOB_RECURSE SOURCE_FILES
 # SOFA plugin are basically libraries
 add_library(${PROJECT_NAME} SHARED ${HEADER_FILES} ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} Sofa.Framework Sofa.Component.Topology Sofa.Component.StateContainer Sofa.GUI.Component)
-#target_include_directories(${PROJECT_NAME} PUBLIC "$<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/include>")
+target_include_directories(${PROJECT_NAME} PUBLIC "$<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/include>")
 include_directories(src)
 
 
@@ -36,6 +36,7 @@ sofa_create_package_with_targets(
         INCLUDE_SOURCE_DIR "src"
         INCLUDE_INSTALL_DIR ${PROJECT_NAME}
         RELOCATABLE "plugins"
+        OPTIMIZE_BUILD_DIR OFF
 )
 
 

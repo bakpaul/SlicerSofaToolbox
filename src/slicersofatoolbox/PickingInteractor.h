@@ -14,7 +14,7 @@
 #include <sofa/core/objectmodel/DataCallback.h>
 #include <sofa/core/CollisionModel.h>
 #include <chrono>
-#include <SlicerSofaToolbox/slicersofatoolbox/config.h>
+#include <slicersofatoolbox/config.h>
 
 
 namespace slicersofatoolbox {

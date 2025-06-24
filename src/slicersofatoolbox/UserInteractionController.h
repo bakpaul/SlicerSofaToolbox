@@ -6,7 +6,7 @@
 #include <chrono>
 
 #include <sofa/core/objectmodel/DataCallback.h>
-#include <SlicerSofaToolbox/slicersofatoolbox/config.h>
+#include <slicersofatoolbox/config.h>
 
 using namespace sofa::core::objectmodel;
 

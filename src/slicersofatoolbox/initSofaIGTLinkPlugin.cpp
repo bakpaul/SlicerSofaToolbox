@@ -1,7 +1,7 @@
 #include <sofa/core/ObjectFactory.h>
 #include <sofa/helper/system/PluginManager.h>
 #include <string>
-#include <SlicerSofaToolbox/slicersofatoolbox/config.h>
+#include <slicersofatoolbox/config.h>
 
 namespace slicersofatoolbox
 {
